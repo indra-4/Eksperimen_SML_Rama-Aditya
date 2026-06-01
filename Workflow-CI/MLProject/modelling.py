@@ -14,7 +14,7 @@ mlflow.sklearn.autolog()
 
 def train_model():
     print("Memuat dataset bersih...")
-    df = pd.read_csv('heart_clean.csv')
+    df = pd.read_csv('heart_preprocessing/heart_clean.csv')
     
     X = df.drop('target', axis=1)
     y = df['target']
