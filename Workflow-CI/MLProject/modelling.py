@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score
 # 2. Masukin Username dan Nama Repo DagsHub lu di sini
 # dagshub.init(repo_owner='indra-4', repo_name='EKSPERIMEN_SML_Rama', mlflow=True)
 
-mlflow.set_experiment("Heart_Disease_Model")
+# mlflow.set_experiment("Heart_Disease_Model")
 mlflow.sklearn.autolog()
 
 def train_model():
