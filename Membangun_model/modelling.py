@@ -1,10 +1,11 @@
 import pandas as pd
 import mlflow
 import mlflow.sklearn
+import joblib # <-- 1. Tambah ini buat jalur barbar
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
-import dagshub # <-- 1. Tambahin ini
+import dagshub 
 
 # 2. Masukin Username dan Nama Repo DagsHub lu di sini
 dagshub.init(repo_owner='indra-4', repo_name='EKSPERIMEN_SML_Rama', mlflow=True)
@@ -25,6 +26,10 @@ def train_model():
     with mlflow.start_run():
         model = KNeighborsClassifier(n_neighbors=5)
         model.fit(X_train, y_train)
+        
+        # --- CARA BARBAR: Paksa save file fisik & upload manual ---
+        joblib.dump(model, "model.pkl")
+        mlflow.log_artifact("model.pkl", "folder_model_pkl")
         
         y_pred = model.predict(X_test)
         acc = accuracy_score(y_test, y_pred)
