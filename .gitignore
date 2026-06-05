@@ -1,2 +1,6 @@
 *.zip
 *.exe
+mlartifacts/
+mlflow.db
+Monitoring dan Logging/data/
+__pycache__/
